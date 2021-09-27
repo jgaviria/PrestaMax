@@ -1,0 +1,51 @@
+<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="main-content">
+  <div class="container mt-7">
+    <%= form_with(model: loan) do |f| %>
+      <div class="card">
+        <div class="card-body">
+
+          <% if loan.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+              <ul>
+                <% loan.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="mb-3">
+            <%= f.label :rating, { class: "form-label" } %>
+            <%= f.text_field :rating, { class: "form-control", placeholder: "Rating" } %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :intent, { class: "form-label" } %>
+            <%= f.text_field :intent, { class: "form-control", placeholder: "Intent" } %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :amount, { class: "form-label" } %>
+            <%= f.text_field :amount, { class: "form-control", placeholder: "Amount" } %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :apr, { class: "form-label" } %>
+            <%= f.text_field :apr, { class: "form-control", placeholder: "Apr" } %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :incubation, { class: "form-label" } %>
+            <%= f.text_field :incubation, { class: "form-control", placeholder: "Incubation" } %>
+          </div>
+
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
